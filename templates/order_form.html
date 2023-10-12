@@ -1,0 +1,361 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>eLEARNING - eLearning HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <form method="post" action="">
+        {% csrf_token %}
+
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="{% url 'finalapp:login' %}" class="nav-item nav-link">Login</a>
+                <a href="{% url 'finalapp:register' %}" class="nav-item nav-link">Register</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="https://en.wikipedia.org/wiki/Computer_science" class="dropdown-item">Computer Science</a>
+                        <a href="https://en.wikipedia.org/wiki/Commerce" class="dropdown-item">Commerce</a>
+                        <a href="https://en.wikipedia.org/wiki/Management" class="dropdown-item">Management</a>
+                        <a href="https://en.wikipedia.org/wiki/English" class="dropdown-item">English</a>
+                        <a href="https://en.wikipedia.org/wiki/Bio_Science" class="dropdown-item">Bio-Science</a>
+                    </div>
+                </div>
+            </div>
+            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Testimonial</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-blue" href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-blue" href="{% url 'finalapp:login' %}">Login</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Testimonial Start -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">School Store</a>
+            </nav>
+             {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+       {{ message }}
+    {% endfor %}
+  </ul>
+{% endif %}
+            <!-- Display order form using Django template tags -->
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="username">Name</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+
+                <!-- DOB -->
+                <div class="form-group">
+                    <label for="dob" style="width: 100px;" >Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" name="dob" >
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" >
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-control" id="gender" name="gender" >
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                <label for="phone">phone number:</label>
+                <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" >
+                </div>
+
+                <!-- Mail ID -->
+                <div class="form-group">
+                    <label for="mail_id">Mail ID</label>
+                    <input type="email" class="form-control" id="mail_id" name="mail_id" >
+                </div>
+
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" id="address" name="address" rows="4" ></textarea>
+                </div>
+
+<!-- Department dropdown -->
+<div class="form-group">
+    <label for="department">Department:</label>
+    <select class="form-control" id="department" name="department">
+        <option value="1">Select Department</option>
+        <option value="1">Computer Science</option>
+        <option value="2">Commerce</option>
+        <option value="3">English</option>
+        <option value="4">Management</option>
+        <option value="5">Bio-Science</option>
+    </select>
+</div>
+
+<!-- Course dropdown (dependent on department) -->
+<div class="form-group">
+    <label for="course">Course:</label>
+    <select class="form-control" id="course" name="course">
+    </select>
+</div>
+
+<script type="text/javascript">
+    // Get references to the department and course dropdowns
+    const departmentDropdown = document.getElementById('department');
+    const courseDropdown = document.getElementById('course');
+
+    // Define a mapping of departments to courses
+    const departmentCourses = {
+      '1': ['Bsc Computer science', 'BCA', 'MCA', 'Msc Computer Science'],
+        '2': ['Bcom', 'Mcom', 'CA', 'ACCA', 'CMA'],
+        '3': ['BA English', 'MA English'],
+        '4': ['BBA','BBM','MBA'],
+        '5': ['Biochemistry', 'Plant Biotechnology', 'Foodscience and Technology']
+};
+
+
+    // Function to update the course dropdown based on the selected department
+    function updateCourseDropdown() {
+        const selectedDepartment = departmentDropdown.value;
+        const courses = departmentCourses[selectedDepartment] || [];
+
+        // Clear existing options
+        courseDropdown.innerHTML = '';
+
+        // Add new options based on the selected department
+        courses.forEach(courseName => {
+            const option = document.createElement('option');
+            option.value = courseName;
+            option.textContent = courseName;
+            courseDropdown.appendChild(option);
+        });
+    }
+
+    // Attach an event listener to the department dropdown
+    departmentDropdown.addEventListener('change', updateCourseDropdown);
+
+    // Initial call to populate the course dropdown based on the initial department selection
+    updateCourseDropdown();
+</script>
+
+
+                <!-- Purpose dropdown -->
+                <div class="form-group">
+                    <label for="purpose">Purpose</label>
+                    <select class="form-control" id="purpose" name="purpose" >
+                        <option value="Enquiry">Enquiry</option>
+                        <option value="Place Order">Place Order</option>
+                        <option value="Return">Return</option>
+                    </select>
+                </div>
+                <!-- checkbox -->
+           <div class="form-group">
+    <label for="material">Material</label><br>
+    <input type="checkbox" id="n1" name="material">
+    <label for="n1"> Pen</label><br>
+    <input type="checkbox" id="n2" name="material">
+    <label for="n2"> Pencil</label><br>
+    <input type="checkbox" id="n3" name="material">
+    <label for="n3"> Book</label><br>
+    <input type="checkbox" id="n4" name="material">
+    <label for="n4"> Paper</label><br>
+</div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+                 <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <p><a href="{% url 'finalapp:home' %}">Return to Home Page</a></p>
+        </div>
+    </div>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Gallery</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-1.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-2.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-3.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-2.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-3.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{% static 'img/course-1.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+           </form>
+</body>
+
+</html>
